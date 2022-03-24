@@ -1,0 +1,58 @@
+body {
+  box-sizing: border-box;
+}
+.container {
+  margin: auto;
+  padding-top: 100px;
+  width: 700px;
+}
+
+input {
+  font-size: 48px;
+  padding-left: 8px;
+}
+
+.search {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 500px;
+  height: 44px;
+  border: 1px solid black;
+  background-color: #e3e3e3;
+  padding-left: 8px;
+}
+
+.card:hover {
+  background-color: #65cdf9;
+}
+.onerepo {
+  padding-top: 16px;
+  box-sizing: border-box;
+  padding-left: 16px;
+  position: relative;
+  width: 503px;
+  height: 101px;
+  background-color: #e27beb;
+  border: 2px solid black;
+}
+
+.close_repo {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 24px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
