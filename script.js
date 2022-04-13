@@ -6,6 +6,7 @@ function getRepo() {
   let value = inputBox.value;
 
   if (value == "") {
+    searchWrapper.innerHTML = "";
     return;
   }
   let data = fetch(
@@ -18,6 +19,7 @@ function getRepo() {
 }
 
 function templateItems(items) {
+  searchWrapper.innerHTML = "";
   const fragment = document.createDocumentFragment();
   items.forEach((element) => {
     const card = document.createElement("div");
@@ -71,4 +73,4 @@ const debounce = (fn, debounceTime) => {
   };
 };
 
-inputBox.addEventListener("keyup", debounce(getRepo, 500));
+inputBox.addEventListener("keyup", debounce(getRepo, 400));
