@@ -27,7 +27,8 @@ function templateItems(items) {
     const article = document.createElement("a");
     article.classList.add("card-text");
     article.textContent = element.name;
-    article.addEventListener("click", () => {
+    card.appendChild(article);
+    card.addEventListener("click", () => {
       const onerepo = document.createElement("div");
       onerepo.classList.add("onerepo");
       const name = document.createElement("p");
@@ -53,7 +54,6 @@ function templateItems(items) {
       deleteRepo.addEventListener("click", deletePost);
       searchWrapper.innerHTML = "";
     });
-    card.appendChild(article);
     fragment.appendChild(card);
   });
   searchWrapper.appendChild(fragment);
