@@ -36,6 +36,7 @@ function templateItems(items) {
     searchWrapper.appendChild(fragment);
   } else {
     alert("не получены данные от сервера или превышен лимит запросов");
+    return;
   }
 }
 
