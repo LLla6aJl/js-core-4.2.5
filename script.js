@@ -9,9 +9,7 @@ function getRepo() {
     searchWrapper.innerHTML = "";
     return;
   }
-  let data = fetch(
-    `https://api.github.com/search/repositories?q=${value}&per_page=5`
-  )
+  fetch(`https://api.github.com/search/repositories?q=${value}&per_page=5`)
     .then((response) => {
       return response.json();
     })
@@ -28,35 +26,37 @@ function templateItems(items) {
     article.classList.add("card-text");
     article.textContent = element.name;
     card.appendChild(article);
-    card.addEventListener("click", () => {
-      const onerepo = document.createElement("div");
-      onerepo.classList.add("onerepo");
-      const name = document.createElement("p");
-      name.classList.add("card-text");
-      name.textContent = `Name: ${element.name}`;
-      const owner = document.createElement("p");
-      owner.classList.add("card-text");
-      owner.textContent = `Owner: ${element.owner.login}`;
-      const stars = document.createElement("p");
-      stars.classList.add("card-text");
-      stars.textContent = `Stars: ${element.stargazers_count}`;
-      const deleteRepo = document.createElement("a");
-      deleteRepo.classList.add("close_repo");
-      const image = document.createElement("img");
-      image.src = "svg.svg";
-      deleteRepo.appendChild(image);
-      onerepo.appendChild(name);
-      onerepo.appendChild(owner);
-      onerepo.appendChild(stars);
-      onerepo.appendChild(deleteRepo);
-      myrepos.appendChild(onerepo);
-      inputBox.value = "";
-      deleteRepo.addEventListener("click", deletePost);
-      searchWrapper.innerHTML = "";
-    });
+    card.addEventListener("click", () => createPost(element), { once: true });
     fragment.appendChild(card);
   });
   searchWrapper.appendChild(fragment);
+}
+
+function createPost(element) {
+  const onerepo = document.createElement("div");
+  onerepo.classList.add("onerepo");
+  const name = document.createElement("p");
+  name.classList.add("card-text");
+  name.textContent = `Name: ${element.name}`;
+  const owner = document.createElement("p");
+  owner.classList.add("card-text");
+  owner.textContent = `Owner: ${element.owner.login}`;
+  const stars = document.createElement("p");
+  stars.classList.add("card-text");
+  stars.textContent = `Stars: ${element.stargazers_count}`;
+  const deleteRepo = document.createElement("a");
+  deleteRepo.classList.add("close_repo");
+  const image = document.createElement("img");
+  image.src = "svg.svg";
+  deleteRepo.appendChild(image);
+  onerepo.appendChild(name);
+  onerepo.appendChild(owner);
+  onerepo.appendChild(stars);
+  onerepo.appendChild(deleteRepo);
+  myrepos.appendChild(onerepo);
+  inputBox.value = "";
+  deleteRepo.addEventListener("click", deletePost);
+  searchWrapper.innerHTML = "";
 }
 
 const deletePost = (event) => {
